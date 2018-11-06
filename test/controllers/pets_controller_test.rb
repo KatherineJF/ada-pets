@@ -9,6 +9,15 @@ class PetsControllerTest < ActionDispatch::IntegrationTest
       must_respond_with :success
     end
 
+    it "is a real working route and returns JSON" do
+      # Act
+      get pets_path
+
+      # Assert
+      expect(response.header['Content-Type']).must_include 'json'
+      must_respond_with :success
+    end
+end 
 
 
 
@@ -48,10 +57,6 @@ class PetsControllerTest < ActionDispatch::IntegrationTest
 
 
 
-
-
-
-    
   #   it "returns json" do
   #     get pets_path
   #     expect(response.header['Content-Type']).must_include 'json'
